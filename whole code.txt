@@ -1,0 +1,210 @@
+<!doctype html>
+
+<head>
+	<meta charset="utf-8">
+	<link rel="stylesheet" type="text/css" href="style.css">
+	<script src="script.js"></script>
+	<script>
+		// TODO: create a handler
+		// let actionURL;
+		// function setSearchEngine() {
+		// 	console.log("inside Set search engine function");
+			
+		// 				//Create an Object to store engine values and URLs
+		// 	let actions = {
+		// 					google: "https://www.google.com/",
+		// 					duckDuckGo: "https://duckduckgo.com/",
+		// 					bing: "https://www.bing.com/search",
+		// 					ask: "https://www.ask.com/web"
+		// 				  };
+			
+
+			//To Check the radio button
+			// let radioSelected = document.querySelector('input[name="engine"]:checked');
+			//    let radioSelected = document.querySelector("input[name=engine]:checked").value;
+			// let radioValue = document.querySelector('input[name="engine"]:checked').value;
+
+
+// let radioValue = document.getElementsByName("engine");
+// console.log(`radiovalue is ${radioValue}`);
+// for (let i = 0; i < radioValue.length; i++) {
+// 	console.log("inside for");
+//   if (radioValue[i].checked === "true") {
+// 	  console.log("inside first if");
+    	// if (radioValue[i].value === "google"){
+		// 		console.log("inside google if");
+		// 		alert("inside google");
+		// 		actionURL = actions["google"];
+		// 		console.log(actionURL);
+		// 	}
+
+    // only one radio can be logically checked, don't check the rest
+    // break;
+//   }
+// }
+			//Checking the value of the radio button
+			// console.log(typeof radioSelected.value);
+			
+			// console.log(radioSelected.value);
+
+			// if (radioValue[i] === "google")
+			// {
+			// 	console.log("inside google");
+			// 	actionURL = actions["google"];
+			// }
+			// console.log(actionURL);
+			// return actionURL;
+			// console.log(actionURL);
+
+			
+			//set Attribute to form element
+			// form.setAttribute("action", actionURL);
+
+			// let actionURL;
+			// 	if (engine === "google") {
+			// 	actionURL = "https://www.google.com/";
+			// 	} else if (engine === "bing") {
+			// 	actionURL = "https://duckduckgo.com/";
+			// 	}
+
+
+		// }
+		
+    window.addEventListener("load", function(){
+        // TODO: register the handler
+		let actionURL;
+		let actions = {
+				google: "https://www.google.com/",
+				duckDuckGo: "https://duckduckgo.com/",
+				bing: "https://www.bing.com/search",
+				ask: "https://www.ask.com/web"
+			  };
+
+		let form = document.getElementById("searchForm");
+		
+		// let form = document.querySelector("form");
+		form.addEventListener("submit", function(event) {  
+			
+			//STARTS HERE
+			let searchInput = document.querySelector("input[name=q]");
+			let radioValue = document.getElementsByName("engine");
+
+			if (searchInput.value === "" ){
+				alert("All fields are required!");
+				event.preventDefault();
+			}
+
+
+
+//To Check the radio button
+// let radioSelected = document.querySelector('input[name="engine"]:checked');
+//    let radioSelected = document.querySelector("input[name=engine]:checked").value;
+// let radioValue = document.querySelector('input[name="engine"]:checked').value;
+
+// let radioSelected = document.querySelector('input[name="engine"]:checked');
+// let radioSelected = document.querySelector("radio[name='engine']:checked");
+
+
+
+// console.log(`radiovalue is ${radioValue}`);
+
+for (let i = 0; i < radioValue.length; i++) {
+	// for (let i = 0; i < radioSelected.length; i++) {
+// console.log("inside for");
+if(radioValue[i].checked) { //starts new if
+
+if (radioValue[i].value === "google"){
+// if (radioSelected[i].value === "google"){
+	console.log("inside google if");
+	alert("inside google");
+	actionURL = actions["google"];
+	console.log(actionURL);
+}
+else if (radioValue[i].value === "duckDuckGo") {
+	alert("inside duckDuckGo");
+	actionURL = actions["duckDuckGo"];
+}
+else if (radioValue[i].value === "bing") {
+	alert("inside bing");
+	actionURL = actions["bing"];
+}
+else if (radioValue[i].value === "ask") {
+	alert("inside ask");
+	actionURL = actions["ask"];
+}
+
+}//ends new if
+  }
+
+
+//Checking the value of the radio button
+// console.log(typeof radioSelected.value);
+
+// console.log(radioSelected.value);
+
+// if (radioValue[i] === "google")
+// {
+// 	console.log("inside google");
+// 	actionURL = actions["google"];
+// }
+// console.log(actionURL);
+		
+// console.log(`ActionURL is ${actionURL}`);
+// return actionURL;
+// console.log(actionURL);
+
+
+//set Attribute to form element
+form.setAttribute("action", actionURL);
+
+
+
+
+});
+
+			//ENDS HERE
+			
+			
+	
+		// let resultShown = document.getElementById("result");
+		// let userInput = document.getElementsByName("q");
+		// form.setAttribute("action", actionURL);
+		// resultShown.innerHTML = actionURL;
+		// form.action = actionURL;
+//search?q="userInput" /search?q=hi
+		
+    });
+	</script>
+</head>
+
+<body>
+
+	<form id="searchForm" method="GET">
+    <!-- TODO: add form elements -->
+
+		<!-- Text field -->
+		<input type="text" name="q"/>
+ 
+		<!-- Radio Button -->
+		&nbsp;
+
+		<label>Google<input type="radio" name="engine" value="google"/>
+		</label>
+
+		<label>DuckDuckGo<input type="radio" name="engine" value="duckDuckGo"/>
+		 </label>
+
+		 <label>Bing<input type="radio" name="engine" value="bing"/>
+		</label>
+
+		<label>Ask<input type="radio" name="engine" value="ask"/>
+		</label>
+
+		<input type="submit" value="Go!" /> 
+
+	
+
+
+	</form>
+
+</body>
