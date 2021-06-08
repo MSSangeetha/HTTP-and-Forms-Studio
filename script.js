@@ -16,38 +16,45 @@ window.addEventListener("load", function(){
         
         let searchInput = document.querySelector("input[name=q]");
        
-        let radioValue = document.querySelector('input[name=engine]:checked');
-        
-        if (searchInput.value === "" || radioValue === null ){
+        let radioValueChecked = document.querySelector('input[name=engine]:checked');
+        let radioValue = document.getElementsByName("engine");
+
+        // alert(radioValue);
+        // alert(radioValue.checked);
+        // alert(radioValue.value);
+        //radioValue === null
+        // let radioValueChecked = document.querySelector('input[name=engine]:checked');
+        if (searchInput.value === "" || radioValueChecked === null){
             alert("All fields are required!");
             event.preventDefault();
         }
 
+//  console.log(`radiovalue is ${radioValue}`);
 
-
-// console.log(`radiovalue is ${radioValue}`);
 
 for (let i = 0; i < radioValue.length; i++) {
+    // alert("inside for loop");
 
         if(radioValue[i].checked) { 
-
+            // if(radioValue.checked) {
+           
+            // alert("radioValue checked");
             if (radioValue[i].value === "google"){
         
-            console.log("inside google if");
-            // alert("inside google");
+            //  alert("inside google");
             actionURL = actions["google"];
-            console.log(actionURL);
+            // console.log(actionURL);
             }
             else if (radioValue[i].value === "duckDuckGo") {
-            // alert("inside duckDuckGo");
+            //  alert("inside duckDuckGo");
             actionURL = actions["duckDuckGo"];
             }
             else if (radioValue[i].value === "bing") {
-            // alert("inside bing");
+            //  alert("inside bing");
             actionURL = actions["bing"];
             }
             else if (radioValue[i].value === "ask") {
-            // alert("inside ask");
+            //  alert("inside ask");
             actionURL = actions["ask"];
             }
 
