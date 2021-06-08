@@ -15,9 +15,10 @@ window.addEventListener("load", function(){
     form.addEventListener("submit", function(event) {  
         
         let searchInput = document.querySelector("input[name=q]");
-        let radioValue = document.getElementsByName("engine");
-
-        if (searchInput.value === "" ){
+       
+        let radioValue = document.querySelector('input[name=engine]:checked');
+        
+        if (searchInput.value === "" || radioValue === null ){
             alert("All fields are required!");
             event.preventDefault();
         }
